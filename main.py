@@ -34,12 +34,16 @@ print("📉 Mean Squared Error:", round(mean_squared_error(y_test, y_pred), 2))
 
 import matplotlib.pyplot as plt
 
-# Plot Actual vs Predicted
+# Plot and save the prediction graph
+plt.figure(figsize=(8, 6))
 plt.scatter(y_test, y_pred, color='blue', alpha=0.6)
-plt.xlabel("Actual G3 Scores")
-plt.ylabel("Predicted G3 Scores")
+plt.plot([0, 20], [0, 20], 'r--')  # Ideal line
+plt.xlabel("Actual Final Scores (G3)")
+plt.ylabel("Predicted Final Scores")
 plt.title("Actual vs Predicted Final Grades")
-plt.plot([0, 20], [0, 20], 'r--')  # reference line
 plt.grid(True)
-plt.show()
+plt.tight_layout()
 
+# Save in current folder
+plt.savefig("plot.png")
+print("📁 Plot saved as plot.png in current folder")
